@@ -14,14 +14,15 @@ jobs:
       - name: Lay code tu repository
         uses: actions/checkout@v4
 
-      - name: Kiem tra file index.html
-        run: |
-          test -f site/index.html
-          if grep -qE 'LE THI MAI LINH|233404050187' site/index.html; then
-            echo "CANH BAO: Chua dien thong tin sinh vien!"
-            exit 1
-          fi
-          echo "OK: Da kiem tra file HTML"
+      - * name: Kiem tra file index.html
+  run: |
+  test -f site/index.html
+  if grep -qE 'TEN-SINH-VIEN|MA-SINH-VIEN' site/index.html; then
+  echo "CANH BAO: Chua dien thong tin sinh vien!"
+  exit 1
+  fi
+  echo "OK: Da dien thong tin sinh vien"
+
 
       - name: Cau hinh AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
